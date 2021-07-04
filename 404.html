@@ -3,5 +3,16 @@
 
 <script src="redirect.js"></script>
 <script>
+function redirectToPage(url, manualRedirectionDiv, dryRun, debugInfo="") {
+    if (manualRedirectionDiv) {
+        // TODO: The below has no visible effect.
+        manualRedirectionDiv.innerHTML = `Redirecting <a href='${url}'>here</a>`;
+    }
+    if (url && !dryRun) {
+        window.location.replace(url + `?debugInfo=${debugInfo}`);
+    }
+}
+
+    
 redirectToPage(window.location.href.replace("vvasuki.github.io", "vishvAsa.github.io"), document.getElementsByName("manualRedirectionDiv"), false);
 </script>
